@@ -1,0 +1,42 @@
+@tailwind base;
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+.container {
+  @apply px-4 mx-auto sm:px-6;
+}
+.button {
+  @apply px-6 py-3 text-center text-white bg-blue-800 rounded-sm shadow-sm hover:bg-blue-900 dark:bg-indigo-500 dark:hover:bg-indigo-600;
+}
+.form-input {
+  @apply focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block w-full mt-1 border-gray-300 rounded-md shadow-sm dark:text-indigo-800 dark:bg-indigo-200 dark:border-indigo-200;
+}
+.pagination-nav {
+  @apply flex justify-center items-center mt-6;
+  .option {
+    @apply p-2 m-1 cursor-pointer dark:text-white hidden sm:flex;
+    path {
+      @apply dark:fill-slate-50;
+    }
+    &.prev, &.next {
+      @apply flex;
+    }
+    &.disabled {
+      @apply cursor-auto text-gray-400;
+      path {
+        @apply fill-slate-400 dark:fill-slate-500;
+      }
+    }
+    &.active {
+      @apply text-indigo-700 relative dark:text-indigo-400;
+      &:after {
+        content: '';
+        @apply absolute left-0 bottom-1 h-px w-full bg-indigo-700 dark:bg-indigo-400;
+      }
+    }
+  }
+}
