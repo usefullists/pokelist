@@ -19,7 +19,7 @@
 		<a href="https://github.com/usefullists/pokelist" target="blank">Github</a>.
 	</p>
 	<p>
-		This project was ispired by James Q Quick <a href="https://www.youtube.com/watch?v=UU7MgYIbtAk" target="blank">SvelteKit Crash Course</a> and was build for learning and experimental purpuses where main goal was learning core
+		This project was ispired by James Q Quick <a href="https://www.youtube.com/watch?v=UU7MgYIbtAk" target="blank">SvelteKit Crash Course</a> and was build for learning and experimental purpuses where main goal was learning the core
 		Svelte and SvelteKit concepts. 
 	</p>
 </div>
