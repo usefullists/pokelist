@@ -1,14 +1,34 @@
-
 <script context="module">
-		export const load = async ({ fetch, params }) => {
-		const limit = 100;
-		const pokemons = await fetch(`./pokeapi.json?limit=${limit}`).then((response => response.json()))
-		return {
-			props: {
-				pokemons: pokemons.pokemons,
-				limit
+	export async function load({ fetch, params }) {
+		const limit = 700;
+		//pokeapi call (get pokemons)
+		const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
+		const response = await fetch(url);
+		const data = await response.json();
+		let pokemons = [];
+		if (response.ok) {
+			const results = data.results;
+			
+
+	
+			//map pokemons id
+			let arr = [...Array(results.length).keys()].map((i) => i + 1);
+			//pokeapi call (get individual pokemon)
+			for (let id of arr) {
+				let pokemon = fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+					.then((response) => response.json())
+					.catch((error) => console.log(error));
+				pokemons.push(pokemon);
 			}
+			pokemons = await Promise.all(pokemons);
+			// if (response.status == 200) {
+				
+			// }
 		}
+		return {
+					status: response.status,
+					props: { pokemons }
+				};
 	}
 </script>
 
