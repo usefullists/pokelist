@@ -2,7 +2,7 @@
 	export async function load({ fetch, params }) {
 		const limit = 700;
 		//pokeapi call (get pokemons)
-		const url = `https://pokeapi.co/api/v2/pokemonwww?limit=${limit}`;
+		const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
 		const response = await fetch(url);
 		if (response.ok) {
 			const data = await response.json();
