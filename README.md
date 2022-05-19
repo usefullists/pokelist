@@ -7,10 +7,6 @@ PokéList is an opensource project made for previewing Pokémons, provided by [P
 Project is build with [SvelteKit](https://kit.svelte.dev/) framework
 and styled with [Tailwind CSS](https://tailwindcss.com/).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
 
 ## Developing
 
