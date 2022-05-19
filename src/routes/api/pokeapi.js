@@ -1,12 +1,12 @@
-
 export async function get(page) {
   //pokeapi search limit
   const limit = page.url.searchParams.get('limit') || '15';
   //pokeapi call (get pokemons)
   const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
   const response = await fetch(url);
-  const data = await response.json();
+
   if (response.ok) {
+    const data = await response.json();
     const results = data.results;
     let pokemons = [];
     //map pokemons id
@@ -19,11 +19,16 @@ export async function get(page) {
       pokemons.push(pokemon);
     }
     pokemons = await Promise.all(pokemons);
-    if(response.status == 200) {
+    if (response.status == 200) {
+      return {
+        status: response.status,
+        body: { pokemons }
+      }
+    }
+  } else {
     return {
       status: response.status,
-      body: { pokemons }
-    }
-  }
+      error: new Error('Could not fetch Pokémons')
+    };
   }
 }
