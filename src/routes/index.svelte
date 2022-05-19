@@ -1,6 +1,6 @@
 <script context="module">
 	export const load = async ({ fetch, params }) => {
-		const limit = 10;
+		const limit = 12;
 		const pokemons = await fetch(`api/pokeapi?limit=${limit}`).then((response => response.json()))
 		return {
 			props: {
